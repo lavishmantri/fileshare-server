@@ -4,6 +4,7 @@
   "description": "server code for fileshare project",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lavish Mantri (lavmantri@gmail.com)",

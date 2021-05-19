@@ -39,7 +39,11 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("message", data);
   });
 
-  socket.onAny((eventName, ...args) => console.log('Uncatched :', eventName, args));
+  socket.onAny((eventName, ...args) => {
+    // console.log('Uncatched :', eventName, args);
+
+    // socket.
+  });
 
   socket.on('connection-offer', (data) => {
     console.log('connection-offer: ', data);
@@ -49,7 +53,9 @@ io.on("connection", (socket) => {
   socket.on('new-ice-candidate', data => {
     console.log('new-ice-candidate: ', data);
     socket.broadcast.emit('new-ice-candidate', data);
-  })
+  });
+
+  socket.on('connection-answer', data => socket.broadcast.emit('connection-answer', data));
 });
 
 server.listen(8000, () => {
